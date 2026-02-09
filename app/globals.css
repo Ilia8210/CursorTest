@@ -56,3 +56,56 @@
         @apply bg-background text-foreground;
     }
 }
+
+@layer utilities {
+    .aspect-9\/4 {
+        aspect-ratio: 9 / 4;
+    }
+
+    .mask-radial-from-45\% {
+        --mask-radial-from: 45%;
+    }
+
+    .mask-radial-to-75\% {
+        --mask-radial-to: 75%;
+    }
+
+    .mask-radial-at-top {
+        --mask-radial-position: top;
+    }
+
+    .mask-radial-\[75\%_100\%\] {
+        --mask-radial-size: 75% 100%;
+    }
+
+    .mask-t-from-50\% {
+        --mask-linear-from: 50%;
+    }
+
+    .mask-radial-from-45\%,
+    .mask-radial-to-75\%,
+    .mask-radial-at-top,
+    .mask-radial-\[75\%_100\%\],
+    .mask-t-from-50\% {
+        mask-image:
+            radial-gradient(
+                var(--mask-radial-size, 75% 100%) at var(--mask-radial-position, top),
+                #000 var(--mask-radial-from, 45%),
+                transparent var(--mask-radial-to, 75%)
+            ),
+            linear-gradient(to bottom, #000 var(--mask-linear-from, 50%), transparent);
+        mask-repeat: no-repeat;
+        mask-position: var(--mask-radial-position, top);
+        mask-size: var(--mask-radial-size, 75% 100%);
+        -webkit-mask-image:
+            radial-gradient(
+                var(--mask-radial-size, 75% 100%) at var(--mask-radial-position, top),
+                #000 var(--mask-radial-from, 45%),
+                transparent var(--mask-radial-to, 75%)
+            ),
+            linear-gradient(to bottom, #000 var(--mask-linear-from, 50%), transparent);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: var(--mask-radial-position, top);
+        -webkit-mask-size: var(--mask-radial-size, 75% 100%);
+    }
+}

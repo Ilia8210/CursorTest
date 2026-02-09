@@ -1,9 +1,9 @@
-import { VeilHeroSection2 } from '@/components/veil-hero-section-2'
+import HeroSection from '@/components/hero-section-1'
 
 export default function Home() {
     return (
         <main>
-            <VeilHeroSection2 />
+            <HeroSection />
         </main>
     )
 }
